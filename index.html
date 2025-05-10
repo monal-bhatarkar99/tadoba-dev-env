@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP and Hostname</title>
+</head>
+<body>
+    <h2>Your IP Address and Hostname</h2>
+    <p id="ip-info">Fetching details...</p>
+
+    <script>
+        fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ip-info').innerHTML = `Your IP Address: ${data.ip}`;
+        })
+        .catch(error => {
+            document.getElementById('ip-info').innerHTML = 'Error fetching IP.';
+            console.error('Error:', error);
+        });
+    </script>
+</body>
+</html>
